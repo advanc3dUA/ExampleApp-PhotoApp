@@ -13,6 +13,7 @@
 		BF2B79EF29853FC300BCD3B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF2B79ED29853FC300BCD3B1 /* LaunchScreen.storyboard */; };
 		BF2B79F72985405100BCD3B1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B79F62985405100BCD3B1 /* ViewController.swift */; };
 		BF2B79F92985407700BCD3B1 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B79F82985407700BCD3B1 /* PhotoCell.swift */; };
+		BF2B79FB2985455E00BCD3B1 /* Combine+PHPhotoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B79FA2985455E00BCD3B1 /* Combine+PHPhotoLibrary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		BF2B79F029853FC300BCD3B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF2B79F62985405100BCD3B1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BF2B79F82985407700BCD3B1 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		BF2B79FA2985455E00BCD3B1 /* Combine+PHPhotoLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+PHPhotoLibrary.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				BF2B79E229853FC100BCD3B1 /* AppDelegate.swift */,
 				BF2B79E429853FC100BCD3B1 /* SceneDelegate.swift */,
 				BF2B79F62985405100BCD3B1 /* ViewController.swift */,
+				BF2B79FA2985455E00BCD3B1 /* Combine+PHPhotoLibrary.swift */,
 				BF2B79F82985407700BCD3B1 /* PhotoCell.swift */,
 				BF2B79EB29853FC300BCD3B1 /* Assets.xcassets */,
 				BF2B79ED29853FC300BCD3B1 /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				BF2B79F72985405100BCD3B1 /* ViewController.swift in Sources */,
 				BF2B79E329853FC100BCD3B1 /* AppDelegate.swift in Sources */,
 				BF2B79E529853FC100BCD3B1 /* SceneDelegate.swift in Sources */,
+				BF2B79FB2985455E00BCD3B1 /* Combine+PHPhotoLibrary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

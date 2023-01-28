@@ -51,18 +51,13 @@ class ViewController: UICollectionViewController {
         diffableDatasource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { (cv, indexPath, assetImage) -> UICollectionViewCell? in
             cv.dequeueConfiguredReusableCell(using: cellRegistry, for: indexPath, item: assetImage)
         })
-    
-        loadPhotosIfAuthorized()
-    }
-    
-    private func loadPhotosIfAuthorized() {
-        PHPhotoLibrary.requestAuthorization(for: .readWrite, handler: { status in
-            if status == .authorized {
-                self.loadAssets()
-            } else {
-                print("Not authorized")
+        
+        PHPhotoLibrary.authorizationStatusPublisher(for: .readWrite)
+            .filter { $0 == .authorized }
+            .sink { [unowned self]_ in
+                loadAssets()
             }
-        })
+            .store(in: &cancellables)
     }
     
     private func loadAssets() {
