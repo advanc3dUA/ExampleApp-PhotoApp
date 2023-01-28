@@ -66,16 +66,19 @@ class ViewController: UICollectionViewController {
         requestOptions.deliveryMode = .highQualityFormat
         requestOptions.isNetworkAccessAllowed = true
 
-        let fetchResult = PHAsset.fetchAssets(with: nil)
-        var images: [AssetImage] = []
-        fetchResult.enumerateObjects { (asset, index, stop) in
-            PHImageManager.default().requestImage(for: asset, targetSize: size, contentMode: .aspectFill, options: requestOptions) { image, info in
-                if let image = image {
-                    images.append(AssetImage(asset: asset, image: image))
-                    self.update(with: images)
-                }
+        PHAsset.fetchAssets(with: nil)
+            .publisher
+            .flatMap(maxPublishers: .max(3)) { asset in
+                PHImageManager.default().publisher(for: asset, targetSize: size, contentMode: .aspectFill, options: requestOptions)
+                    .replaceError(with: UIImage())
+                    .map { AssetImage(asset: asset, image: $0) }
             }
-        }
+            .collect()
+            .receive(on: DispatchQueue.main)
+            .sink { [unowned self] images in
+                update(with: images)
+            }
+            .store(in: &cancellables)
     }
     
     private func update(with images: [AssetImage]) {
